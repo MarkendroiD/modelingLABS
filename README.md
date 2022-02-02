@@ -1,2 +1,2 @@
-# modelingLABS
-SibSUTIS - 4 kurs - modeling
+# Лабораторные работы по курсу "Моделирование"
+
