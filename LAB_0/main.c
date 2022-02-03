@@ -28,13 +28,16 @@ int main(){
 
 	printf("Randomizing ....\n");
 
-	for (int i = 0; i < 10000; i++){
+	for (int i = 0; i < 1000000; i++){
 		float rand_num = randomize();
 		int k = rand_num * ROUND_SIZE;
 		counting[k]++;
 	}
 
-	
+	for (int i = 0; i <= ROUND_SIZE; i++){
+		float k = (float)i / ROUND_SIZE;
+		printf("%.2f %d\n", k, counting[i]);
+	}
 
 	return 0;
 }
