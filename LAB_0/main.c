@@ -7,7 +7,6 @@ int main(){
 
 	FILE *result;
 
-
 	srand((unsigned int)time(NULL));
 
 	int counting[101];
@@ -24,7 +23,9 @@ int main(){
 	}
 
 	result = fopen ("result.txt", "w");
+	fprintf (result, "Num Count\n");
 	printf("Writing result ....\n");
+
 	for (int i = 0; i <= 100; i++){
 		float k = (float)i / 100;
 		//printf("%.2f %d\n", k, counting[i]);
