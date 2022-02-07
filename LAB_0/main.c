@@ -60,7 +60,7 @@ int main(){
 
 	float res_x2 = x2(counting);
 
-	printf ("%f \n", res_x2);
+	printf ("x^2 = %f \n", res_x2);
 
 	return 0;
 }
