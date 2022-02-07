@@ -46,7 +46,7 @@ int main(){
 		counting[x]++;
 	}
 
-	result = fopen ("result.txt", "w");
+	result = fopen ("LAB_0/result.txt", "w");
 	fprintf (result, "Num Count\n");
 	printf("Writing result ....\n");
 
