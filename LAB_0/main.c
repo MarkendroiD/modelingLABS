@@ -27,6 +27,45 @@ float x2(int counting[]){
 
 }
 
+float autoCor(int counting[], float all_numbers[]){
+	float max_exp = 0.0;
+	float max2_exp = 0.0;
+
+	for (int i = 1; i <= INTERVAL; i++){
+		max_exp += (i / INTERVAL) * counting[i];
+		max2_exp += pow((i / INTERVAL), 2) * counting[i];
+	}
+
+	max_exp /= N;
+	max2_exp /= N;
+
+	float dispers = max2_exp - pow(max_exp, 2);
+
+	float p1, p2;
+
+	float aver_cor = 0.0;
+	float auto_cor;
+	for (int offset = 1; offset < 10; offset++){
+		auto_cor = 0.0;
+		for (int pos = 0; pos < N; pos++){
+			p1 = (all_numbers[pos] - max_exp);
+			p2 = (all_numbers[(pos + offset) % N] - max_exp);
+
+			auto_cor += p1 * p2;
+		}
+		auto_cor /= (dispers * N);
+		aver_cor += fabs(auto_cor);
+
+		printf("autocor = %f\n", fabs(auto_cor));
+
+	}
+
+	printf("average autocor = %f\n", aver_cor / 10);
+
+	return 0;
+
+}
+
 int main(){
 
 	FILE *result;
@@ -41,8 +80,11 @@ int main(){
 
 	printf("Randomizing ....\n");
 
+	float all_numbers[N + 1];
+
 	for (int i = 0; i <= N; i++){
 		int x = rand() % (INTERVAL + 1);
+		all_numbers[i] = x / INTERVAL;
 		counting[x]++;
 	}
 
@@ -61,6 +103,8 @@ int main(){
 	float res_x2 = x2(counting);
 
 	printf ("x^2 = %f \n", res_x2);
+
+	autoCor(counting, all_numbers);
 
 	return 0;
 }
