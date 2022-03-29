@@ -5,18 +5,18 @@
 #include <time.h>
 
 #define INTERVAL 100 // Точность после запятой
-#define N 1000000    // Кол-во сгенерированных чисел
-#define DOOM 800	 // Диапозон от 0 до DOOM \ 100
+#define N 10000000    // Кол-во сгенерированных чисел
+#define DOOM 100	 // Диапозон от 0 до DOOM \ 100
 
 float math(float E){
 	float result;
-	if (E <= 1){
-		//result = sqrtf(sqrtf(E/8));
-		result = 1 - sqrtf(sqrtf((1 - E) / 8));
-		printf("%.2f  |||   %f  \n", E,result);
-	} else {
-		//result = 1 - sqrtf(sqrtf((1 - E) / 8));
+	if (E <= 0.5){
 		result = sqrtf(sqrtf(E/8));
+		//result = 1 - sqrtf(sqrtf((1 - E) / 8));
+		//printf("%.2f  |||   %f  \n", E,result);
+	} else {
+		result = 1 - sqrtf(sqrtf((1 - E) / 8));
+		//result = sqrtf(sqrtf(E/8));
 		//printf("%f  ", result);
 	}
 	//printf("HELLO %f %f\n", E, result);
